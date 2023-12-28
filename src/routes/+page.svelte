@@ -1,5 +1,6 @@
 <script lang="ts">
     import Intro from "$lib/components/Intro.svelte";
+    import './styles.css';
 </script>
 
 <svelte:head>
@@ -9,9 +10,7 @@
 
 
 <Intro></Intro>
-<!-- <section class="intro">
-    <h1>Intro</h1>
-</section> -->
+
 <section>
     <h1>About</h1>
 </section>
