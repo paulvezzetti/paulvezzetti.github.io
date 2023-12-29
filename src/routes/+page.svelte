@@ -1,5 +1,6 @@
 <script lang="ts">
     import Intro from "$lib/components/Intro.svelte";
+    import About from "$lib/components/About.svelte";
     import './styles.css';
 </script>
 
@@ -11,9 +12,8 @@
 
 <Intro></Intro>
 
-<section>
-    <h1>About</h1>
-</section>
+<About></About>
+
 <section>
     <h1>Skills</h1>
 </section>
@@ -30,7 +30,6 @@
 
 <style>
 	section {
-        background-color: #2c2c2c;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
