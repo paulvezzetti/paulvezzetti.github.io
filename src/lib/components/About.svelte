@@ -46,7 +46,7 @@
 	}
 
     p {
-        font-size: 3vh;
+        font-size: 2vh;
         letter-spacing: 1px;
         margin: 1vh 0;
     }
