@@ -20,17 +20,14 @@
 		display: flex;
         flex-direction: column;
 		height: 100vh;
-	}
-
-	p {
-		width: 100%;
-		color: #d3d3d3;
-		margin: 0;
+        scroll-snap-align: start;
 	}
 
 	.intro {
+        position: relative;
 		background-image: url('../images/abstract-background.png');
 		background-size: cover;
+        scroll-snap-align: start;
 	}
 
 	.main-block {
