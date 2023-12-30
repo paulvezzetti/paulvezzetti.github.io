@@ -3,16 +3,22 @@
 
 	let divWidth = 0;
 	let divHeight = 0;
-    let headerHeight = 0;
+	let headerHeight = 0;
 
 	$: chartWidth = divWidth * 0.75;
-	$: chartHeight = (divHeight - headerHeight) * 0.8;
+	$: chartHeight = divHeight * 0.8;
 </script>
 
 <section>
-	<div class="skills" bind:clientWidth={divWidth} bind:clientHeight={divHeight}>
+	<div class="skills">
 		<h1 bind:clientHeight={headerHeight}>Skills</h1>
-		<SkillChart inputWidth={chartWidth} inputHeight={chartHeight}></SkillChart>
+		<div class="skills-content" bind:clientWidth={divWidth} bind:clientHeight={divHeight}>
+			<SkillChart inputWidth={chartWidth} inputHeight={chartHeight}></SkillChart>
+			<p>
+				My skills are always evolving as I continue to learn new languages and libraries. My most
+				current skills are honed toward my current responsibilities.
+			</p>
+		</div>
 	</div>
 </section>
 
@@ -23,7 +29,7 @@
 		flex-direction: column;
 		height: 100vh;
 		position: relative;
-        scroll-snap-align: start;
+		scroll-snap-align: start;
 	}
 
 	.skills {
@@ -39,6 +45,12 @@
 		border: 2px solid #5a5a5a;
 		border-radius: 1.5vw;
 		box-shadow: 0.5vw 0.5vh 1.2vw 0 rgba(0, 0, 0, 0.8);
+	}
+
+	.skills-content {
+		display: flex;
+		flex-direction: row;
+		height: 100%;
 	}
 
 	h1 {

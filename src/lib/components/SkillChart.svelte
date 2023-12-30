@@ -17,7 +17,7 @@
 	export let inputWidth = 0;
 	export let inputHeight = 0;
 
-	const marginTop = 20;
+	const marginTop = 0;
 	const marginRight = 20;
 	const marginBottom = 30;
 	const marginLeft = 10;
