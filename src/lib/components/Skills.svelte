@@ -5,13 +5,13 @@
 	let divHeight = 0;
     let headerHeight = 0;
 
-	$: chartWidth = (divWidth * 0.8) / 2;
+	$: chartWidth = divWidth * 0.75;
 	$: chartHeight = (divHeight - headerHeight) * 0.8;
 </script>
 
 <section>
 	<div class="skills" bind:clientWidth={divWidth} bind:clientHeight={divHeight}>
-		<h1 bind:clientHeight={headerHeight}>Skills {divWidth} x {divHeight}px</h1>
+		<h1 bind:clientHeight={headerHeight}>Skills</h1>
 		<SkillChart inputWidth={chartWidth} inputHeight={chartHeight}></SkillChart>
 	</div>
 </section>
