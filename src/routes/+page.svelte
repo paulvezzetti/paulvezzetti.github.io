@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Intro from '$lib/components/Intro.svelte';
 	import About from '$lib/components/About.svelte';
+    import Experience from '$lib/components/Experience.svelte';
+	import Intro from '$lib/components/Intro.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import './styles.css';
 </script>
@@ -17,9 +18,7 @@
 
 	<Skills></Skills>
 
-	<section>
-		<h1>Experience</h1>
-	</section>
+    <Experience></Experience>
 	<section>
 		<h1>Projects</h1>
 	</section>
