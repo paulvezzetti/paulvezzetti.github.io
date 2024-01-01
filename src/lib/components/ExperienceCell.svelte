@@ -2,16 +2,14 @@
 	export let title: string;
 	export let company: string;
 	export let dates: string;
-	export let logo: string;
+	export let logo: any;
 	export let bullets: string[];
-
-    $: imgUrl = new URL(`../images/${logo}`, import.meta.url).href;
 
 </script>
 
 <div class="outer-container">
 	<div class="header">
-        <img src="{imgUrl}" alt="{logo}" height="32px" width="32px">
+        <img class="logo" src="{logo}" alt="{company}">
 		<div>
 			<p class="title-text">{title}</p>
 			<p class="sub-title-text">{company}</p>
@@ -34,25 +32,32 @@
 		border: 1px solid #5a5a5a;
 		border-radius: 1.5vw;
 		box-shadow: 0.5vw 0.5vh 1.2vw 0 rgba(0, 0, 0, 0.8);
-		width: 50vw;
 	}
 
 	.header {
         display: flex;
         flex-direction: row;
         column-gap: 1vw;
-		height: 5vh;
+		height: 5vmin;
+        width: min(55vw, 600px);
 		background: linear-gradient(to bottom, #083C99, #3671BE);
-		padding: 2vh;
+		padding: 2vmin;
 		border-top-left-radius: 1.5vw;
 		border-top-right-radius: 1.5vw;
 	}
 
+    .logo {
+        height: min(32px, 6vw);
+        width: min(32px, 6vw);
+    }
+
 	.title-text {
+        font-size: min(2.5vw, 24px);
 		font-weight: 600;
 	}
 
 	.sub-title-text {
+        font-size: min(1.5vw, 16px);
 		font-weight: 400;
 	}
 
