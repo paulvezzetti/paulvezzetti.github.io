@@ -3,20 +3,23 @@
 	import ArrowRight from '../images/arrowRight.png';
 	import ArrowLeft from '../images/ArrowLeft.png';
 
-	let carousel;
-	let scrollRightButton;
-	let scrollLeftButton;
+	let carousel: HTMLElement;
+	let scrollRightButton: HTMLElement;
+	let scrollLeftButton: HTMLElement;
 	let scrollIndex = 0;
 
 	let childStarts: Array<number> = [];
 	let childWidths: Array<number> = [];
+
+	let canScrollLeft = false;
+	let canScrollRight = false;
 
 	function countChildren() {
 		if (carousel != null) {
 			childStarts = [];
 			childWidths = [];
 			for (let i = 0; i < carousel.children.length; i++) {
-				const child = carousel.children[i];
+				const child = carousel.children[i] as HTMLElement;
 				if (child !== scrollRightButton && child !== scrollLeftButton) {
 					childStarts.push(child.offsetLeft);
 					childWidths.push(child.offsetWidth);
@@ -27,36 +30,71 @@
 	}
 
 	function scrollRight() {
-		console.log('ScrollRight');
-		if (scrollIndex < childStarts.length - 1) {
-			scrollIndex += 1;
-			const scrollPos = childStarts[scrollIndex];
-			console.log(`Scrolling to item ${scrollIndex} at pos:  ${scrollPos}`);
-			carousel.scrollLeft = scrollPos;
-		} else {
-			scrollIndex = 0;
-			carousel.scrollLeft = 0;
-		}
+		const scrollDelta = carousel.clientWidth;
+		const nextScrollPos = carousel.scrollLeft + scrollDelta;
+
+		const lastVisibleChildIndex = childStarts.reduce((result, start, index) => {
+			const childEndPos = start + childWidths[index];
+			if (childEndPos <= nextScrollPos) {
+				return index;
+			}
+			return result;
+		}, 0);
+
+		// Align to end of last visible
+		const endPos = childStarts[lastVisibleChildIndex] + childWidths[lastVisibleChildIndex];
+		carousel.scrollLeft = endPos;
+
+		setCanScroll();
 	}
 
-    function scrollLeft() {
+	function scrollLeft() {
+		// Find the first child which isn't fully visible
+		const firstNonVisibleChildIndex = childStarts.reduce((result, start, index) => {
+			if (start < carousel.scrollLeft) {
+				return index;
+			}
+			return result;
+		}, 0);
 
-    }
+		// Find the start of the next child. That will be our end position
+		const endPos = childStarts[firstNonVisibleChildIndex + 1];
+
+		const scrollDelta = carousel.clientWidth;
+		carousel.scrollLeft = endPos - scrollDelta;
+
+		setCanScroll();
+	}
+
+	function setCanScroll() {
+		// Determine if first/last item is fully visible
+
+		canScrollLeft = carousel.scrollLeft >= childStarts[0];
+
+		const lastChildIndex = childStarts.length - 1;
+		const lastChildEnd = childStarts[lastChildIndex] + childWidths[lastChildIndex];
+		canScrollRight = carousel.scrollLeft + carousel.clientWidth <= lastChildEnd;
+	}
 
 	// get size of static descendants here
-	onMount(countChildren);
-
-	// get slot size (and static descendants) here
-	// afterUpdate(countChildren);
+	onMount(() => {
+		countChildren();
+		setCanScroll();
+		window.addEventListener('resize', countChildren);
+	});
 </script>
 
 <div class="carousel" bind:this={carousel}>
-	<button class="scroll-button scroll-right" bind:this={scrollRightButton} on:click={scrollRight}
-		><img class="image-button" src={ArrowRight} alt="Scroll right" /></button
-	>
-	<button class="scroll-button scroll-left" bind:this={scrollLeftButton} on:click={scrollLeft}
-		><img class="image-button" src={ArrowLeft} alt="Scroll left" /></button
-	>
+	{#if canScrollLeft}
+		<button class="scroll-button scroll-left" bind:this={scrollLeftButton} on:click={scrollLeft}
+			><img class="image-button" src={ArrowLeft} alt="Scroll left" /></button
+		>
+	{/if}
+	{#if canScrollRight}
+		<button class="scroll-button scroll-right" bind:this={scrollRightButton} on:click={scrollRight}
+			><img class="image-button" src={ArrowRight} alt="Scroll right" /></button
+		>
+	{/if}
 	<slot />
 </div>
 
@@ -69,19 +107,18 @@
 		overflow: hidden;
 	}
 
-    .scroll-button {
+	.scroll-button {
 		position: absolute;
 		top: 50%;
 		background: transparent;
 		border: none;
-        cursor: pointer;
+		cursor: pointer;
+	}
 
-    }
+	.scroll-left {
+		left: 0;
+	}
 
-    .scroll-left {
-        left: 0;
-    }
-    
 	.scroll-right {
 		right: 0;
 	}

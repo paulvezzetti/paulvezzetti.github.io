@@ -44,6 +44,7 @@
 
 	.scroller {
 		overflow-y: scroll;
+        overflow-x: hidden;
 		scroll-snap-type: y mandatory;
         height: 100vh;
 	}
