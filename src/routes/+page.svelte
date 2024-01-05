@@ -12,19 +12,25 @@
 
 	function changeSection(event) {
 		const section = event.detail.section;
-		console.log('Handled section change: ' + section);
 		selectedSection = sections.find((s) => s === section) ?? section;
 
 		const sectionIndex = sections.indexOf(section);
 		if (sectionIndex >= 0 && scroller != null) {
 			const scrollPos = sectionIndex * scroller.clientHeight;
-			// scroller.scrollTop = scrollPos;
 			scroller.scrollTo({
 				top: scrollPos,
 				left: 0,
 				behavior: 'smooth'
 			});
 		}
+	}
+
+	function onScroll() {
+		if (scroller === undefined) {
+			return;
+		}
+		const scrollIndex = Math.floor(scroller.scrollTop / scroller.clientHeight);
+		selectedSection = sections[scrollIndex];
 	}
 </script>
 
@@ -33,7 +39,7 @@
 	<meta name="description" content="Personal Page for Paul Vezzetti" />
 </svelte:head>
 
-<div class="scroller" bind:this={scroller}>
+<div class="scroller" bind:this={scroller} on:scroll={onScroll}>
 	<Intro></Intro>
 
 	<About></About>

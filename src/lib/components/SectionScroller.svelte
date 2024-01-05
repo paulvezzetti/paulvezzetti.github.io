@@ -7,7 +7,6 @@
 	const dispatch = createEventDispatcher();
 
 	function clickOn(section: string) {
-		console.log(`Clicked on ${section}`);
 		dispatch('setSection', {
 			section: section
 		});
@@ -21,7 +20,6 @@
 			data-section={section}
 			on:click={() => clickOn(section)}
 		></button>
-		<!-- <p>{section}</p> -->
 	{/each}
 </div>
 
