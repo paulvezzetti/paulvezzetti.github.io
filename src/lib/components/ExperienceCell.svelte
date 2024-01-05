@@ -72,6 +72,6 @@
 		border-bottom-right-radius: 1.5vw;
 		color: #d3d3d3;
 		letter-spacing: 0.05em;
-		font-size: 1.3vmin;
+		font-size: 1.6vmin;
 	}
 </style>

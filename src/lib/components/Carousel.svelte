@@ -110,6 +110,7 @@
 	.scroll-button {
 		position: absolute;
 		top: 50%;
+		transform: translateY(-50%);
 		background: transparent;
 		border: none;
 		cursor: pointer;
@@ -120,10 +121,10 @@
 	}
 
 	.scroll-right {
-		right: 0;
+		right: 12px;
 	}
 
 	.image-button {
-		width: 5vw;
+		width: 4vw;
 	}
 </style>

@@ -20,8 +20,8 @@
 			const scrollPos = sectionIndex * scroller.clientHeight;
 			// scroller.scrollTop = scrollPos;
 			scroller.scrollTo({
-                top: scrollPos,
-                left: 0,
+				top: scrollPos,
+				left: 0,
 				behavior: 'smooth'
 			});
 		}
@@ -73,11 +73,18 @@
 		overflow-x: hidden;
 		scroll-snap-type: y mandatory;
 		height: 100vh;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scroller::-webkit-scrollbar {
+		display: none;
 	}
 
 	.main-scroller {
 		position: absolute;
 		top: 50%;
-		right: 40px;
+		right: 6px;
+		transform: translateY(-50%);
 	}
 </style>

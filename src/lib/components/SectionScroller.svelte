@@ -18,8 +18,7 @@
 	{#each sections as section, index}
 		<button
 			class="circle {section === selected ? 'selected' : ''}"
-            data-section={section}
-			style="top:{index * 20}px"
+			data-section={section}
 			on:click={() => clickOn(section)}
 		></button>
 		<!-- <p>{section}</p> -->
@@ -28,10 +27,11 @@
 
 <style>
 	.outer {
-		position: relative;
+		display: flex;
+		flex-direction: column;
+		row-gap: 4px;
 	}
 	.circle {
-		position: absolute;
 		height: 16px;
 		width: 16px;
 		border: 3px solid #c7c7c7;
@@ -43,9 +43,9 @@
 	.circle:hover::before {
 		content: attr(data-section);
 		color: #c7c7c7;
-		position: absolute;
-		right: 18px;
-		top: -2px;
+		float: right;
+		margin-right: 18px;
+		margin-top: -2px;
 	}
 
 	.selected {
