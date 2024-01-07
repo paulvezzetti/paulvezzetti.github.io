@@ -1,26 +1,20 @@
 <script lang="ts">
 	export let title: string;
-	export let company: string;
-	export let dates: string;
-	export let logo: any;
-	export let bullets: string[];
+	export let owner: string;
+	export let date: string;
+	export let link: string;
+	export let description: string;
 </script>
 
 <div class="outer-container">
 	<div class="header">
-		<img class="logo" src={logo} alt={company} />
-		<div>
-			<p class="title-text">{title}</p>
-			<p class="sub-title-text">{company}</p>
-			<p class="sub-title-text">{dates}</p>
-		</div>
+		<p class="title-text">{title}</p>
+		<p class="sub-title-text">{owner}</p>
+		<p class="sub-title-text">{date}</p>
+		<p class="sub-title-text">{link}</p>
 	</div>
 	<div class="bullets-container">
-		<ul>
-			{#each bullets as bullet}
-				<li>{bullet}</li>
-			{/each}
-		</ul>
+        <div>{@html description}</div>
 	</div>
 </div>
 
@@ -69,6 +63,7 @@
 		border-bottom-left-radius: 1.5vw;
 		border-bottom-right-radius: 1.5vw;
 		color: #d3d3d3;
+		letter-spacing: 0.05em;
 		font-size: 1.6vmin;
 	}
 </style>

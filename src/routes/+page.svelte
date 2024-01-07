@@ -2,12 +2,13 @@
 	import About from '$lib/components/About.svelte';
 	import Experience from '$lib/components/Experience.svelte';
 	import Intro from '$lib/components/Intro.svelte';
+	import Projects from '$lib/components/Projects.svelte';
 	import SectionScroller from '$lib/components/SectionScroller.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import './styles.css';
 
 	let scroller: HTMLElement | undefined;
-	let sections = ['Intro', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
+	let sections = ['Intro', 'About', 'Skills', 'Experience', 'Projects'];
 	let selectedSection = sections[0];
 
 	function changeSection(event) {
@@ -47,13 +48,10 @@
 	<Skills></Skills>
 
 	<Experience></Experience>
-	<section>
-		<h1>Projects</h1>
-	</section>
-	<section>
-		<h1>Contact</h1>
-	</section>
-	<div class="main-scroller">
+
+	<Projects></Projects>
+	
+    <div class="main-scroller">
 		<SectionScroller {sections} selected={selectedSection} on:setSection={changeSection}
 		></SectionScroller>
 	</div>

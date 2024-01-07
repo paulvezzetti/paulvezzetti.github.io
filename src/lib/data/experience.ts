@@ -2,7 +2,7 @@ import mode from '../images/mode.png';
 import jmp from '../images/jmp.png';
 import sas from '../images/sas.png';
 
-export interface experience {
+export interface Experience {
 	title: string;
 	company: string;
 	dates: string;
@@ -10,7 +10,7 @@ export interface experience {
 	bullets: string[];
 }
 
-export const Experiences: Array<experience> = [
+export const Experiences: Array<Experience> = [
 	{
 		title: 'Senior Visualization Systems Engineer',
 		company: 'Mode Analytics',

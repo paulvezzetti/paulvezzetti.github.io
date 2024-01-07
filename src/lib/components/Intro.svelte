@@ -63,7 +63,5 @@
 		font-size: 2vw;
 		color: #f3f3f3;
         max-width: 60vw;
-        letter-spacing: 1.5px;
-
 	}
 </style>
