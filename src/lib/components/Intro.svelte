@@ -43,6 +43,7 @@
 	}
 
 	.attention {
+        font-family: 'Inter';
 		font-size: 10vw;
 	}
 

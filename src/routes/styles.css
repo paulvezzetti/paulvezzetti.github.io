@@ -5,9 +5,17 @@
 	src: url('fonts/Inter/Inter-Regular.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Inter-Thin';
+	font-style: normal;
+	font-weight: 100;
+	src: url('fonts/Inter/Inter-Thin.ttf') format('truetype');
+}
+
 
 :root {
-	--font-body: 'Inter';
+	--font-body: 'Inter-Thin';
+	--font-header: 'Inter';
 	font-family: var(--font-body);
 }
 
@@ -19,12 +27,14 @@ body {
 }
 
 h1 {
+	font-family: var(--font-header);
 	font-size: 4vw;
 	color: #d3d3d3;
 	width: 100%;
 }
 
 p {
+	font-family: 'Inter-Thin';
 	width: 100%;
 	color: #b7b7b7;
 	margin: 0;

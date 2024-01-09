@@ -10,7 +10,6 @@
 </script>
 
 <section>
-	<div class="skills">
 		<h1 bind:clientHeight={headerHeight}>Skills</h1>
 		<div class="skills-content" bind:clientWidth={divWidth} bind:clientHeight={divHeight}>
 			<SkillChart inputWidth={chartWidth} inputHeight={chartHeight}></SkillChart>
@@ -19,7 +18,6 @@
 				current skills are honed toward my current responsibilities.
 			</p>
 		</div>
-	</div>
 </section>
 
 <style>
@@ -30,6 +28,7 @@
 		height: 100vh;
 		position: relative;
 		scroll-snap-align: start;
+        margin: 0 5vw;
 	}
 
 	.skills {
@@ -54,6 +53,7 @@
 	}
 
 	h1 {
-		text-align: center;
+		text-align: left;
+        padding-left: 4vw;
 	}
 </style>

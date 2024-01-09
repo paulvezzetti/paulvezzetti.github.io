@@ -11,7 +11,7 @@
 </script>
 
 <section>
-	<div class="about">
+	
 		<h1>About me</h1>
 		<p class="lead-text">I like to make <span style="font-style:italic">things...</span></p>
 		{#each paragraphs as para}
@@ -25,7 +25,7 @@
 				><img class="link-button" src={GitHubLogo} alt="GitHub" /></a
 			>
 		</div>
-	</div>
+	
 </section>
 
 <style>
@@ -36,6 +36,8 @@
 		height: 100vh;
 		position: relative;
 		scroll-snap-align: start;
+        margin: 0 5vw;
+        padding: 0 3vw;
 	}
 
 	.about {
@@ -55,7 +57,8 @@
 	}
 
 	h1 {
-		text-align: center;
+		text-align: left;
+        padding-left: 4vw;
 	}
 
 	p {

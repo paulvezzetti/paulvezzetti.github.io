@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { Projects, type Project } from '$lib/data/projects';
-    import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
+	import link from '../images/link.svg';
+	import link_hover from '../images/link_hover.svg';
 
 	let selectedProject: Project | undefined;
+	let linkSrc: typeof link | typeof link_hover = link;
 
 	function onProjectSelect(projectId: number) {
 		selectedProject = Projects.find((p) => p.id === projectId);
 	}
 
-    onMount(() => {
-        selectedProject = Projects[0];
-    })
-
+	onMount(() => {
+		selectedProject = Projects[0];
+	});
 </script>
 
 <section>
@@ -26,25 +28,18 @@
 			{/each}
 		</div>
 		<div class="project-details">
-            <img src={selectedProject?.screenshot} alt="screenshot" class="screenshot">
-            <div class="project-description">
-                <p>{selectedProject?.title ?? 'Missing Title'}</p>
-                <p>{@html selectedProject?.description}</p>
-            </div>
+			<img src={selectedProject?.screenshot} alt="screenshot" class="screenshot" />
+			<div class="project-description">
+				<a
+					href={selectedProject?.link}
+					on:mouseenter={() => (linkSrc = link_hover)}
+					on:mouseleave={() => (linkSrc = link)}
+					><img src={linkSrc} alt="link" class="link-icon" /></a
+				>
+				<p>{@html selectedProject?.description}</p>
+			</div>
 		</div>
 	</div>
-
-	<!-- <Carousel>
-		{#each Projects as project}
-			<ProjectCell
-				title={project.title}
-				owner={project.owner}
-				date={project.date}
-				link={project.link}
-				description={project.description}
-			></ProjectCell>
-		{/each}
-	</Carousel> -->
 </section>
 
 <style>
@@ -55,17 +50,22 @@
 		height: 100vh;
 		position: relative;
 		scroll-snap-align: start;
-        margin: 0 5vw;
+		margin: 0 5vw;
 	}
 
 	h1 {
 		text-align: left;
-        padding-left: 4vw;
+		padding-left: 4vw;
 	}
 
 	.dual-pane {
 		display: grid;
 		grid-template-columns: auto 1fr;
+	}
+
+	.link-icon {
+		height: 16px;
+		width: 16px;
 	}
 
 	.project-list {
@@ -93,20 +93,20 @@
 	}
 
 	.project-button.selected {
-        color: #cfcfcf;
+		color: #cfcfcf;
 		font-weight: 600;
 	}
 
 	.project-details {
-        display: flex;
-        flex-direction: row;
-        column-gap: 3vw;
-        padding: 0.5vw 3vw;
+		display: flex;
+		flex-direction: row;
+		column-gap: 3vw;
+		padding: 0.5vw 5vw;
 		color: #333333;
 	}
 
-    .screenshot {
-        height: 6vh;
-        border-radius: 12px;
-    }
+	.screenshot {
+		height: 6vh;
+		border-radius: 12px;
+	}
 </style>

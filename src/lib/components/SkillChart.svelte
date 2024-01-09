@@ -114,10 +114,12 @@
 			.append('g')
 			.attr('transform', `translate(0,${inputHeight - marginBottom})`)
 			.attr('color', '#d3d3d3')
+            .style('font-size', 'large')
 			.call(
 				d3
 					.axisBottom(x)
 					.ticks(5)
+                    
 					.tickFormat((d, i) => tickLabels[d])
 			)
 			.call((g) => g.select('.domain').remove());

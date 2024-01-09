@@ -1,5 +1,6 @@
 import personal_website from '../images/personal_website.png';
 import days_since from '../images/days_since.png';
+import visual_explorer from '../images/visual_explorer.png';
 
 export interface Project {
     id: number;
@@ -20,7 +21,7 @@ export const Projects: ReadonlyArray<Project> = [
         screenshot: personal_website,
         owner: 'Personal',
         date: '2024',
-        link: 'https://mode.com',
+        link: 'https://github.com/paulvezzetti',
         description: `This website is my first experience with Svelte/SvelteKit. I spend most of my work day with Angular. ` + 
         `This is a opportunity to try out a more modern framework. I appreciate the simplicity of Svelte compared to Angular. ` + `
         While I'm not a Svelte expert after this experiment, it is easy to see the parallels with Angular. ` + 
@@ -29,7 +30,7 @@ export const Projects: ReadonlyArray<Project> = [
     {
         id: 1,
         title: 'Visual Explorer',
-        screenshot: days_since,
+        screenshot: visual_explorer,
         owner: 'Work',
         date: '2024',
         link: 'https://mode.com',
@@ -50,7 +51,7 @@ export const Projects: ReadonlyArray<Project> = [
         screenshot: days_since,
         owner: 'Personal',
         date: '2024',
-        link: 'https://mode.com',
+        link: 'https://github.com/paulvezzetti',
         description: 'Built a mobile app for Android and IOS for personal use',
     },
     {
@@ -68,7 +69,7 @@ export const Projects: ReadonlyArray<Project> = [
         screenshot: days_since,
         owner: 'Personal',
         date: '2024',
-        link: 'https://mode.com',
+        link: 'https://github.com/paulvezzetti',
         description: 'Fun project to create my own watch face for my new watch',
     },
     {
@@ -80,10 +81,4 @@ export const Projects: ReadonlyArray<Project> = [
         link: 'https://mode.com',
         description: 'Hack Day project which won Hacker`s Choice Award',
     }
-
-
-
-
-
-
 ];
