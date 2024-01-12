@@ -1,6 +1,7 @@
 import personal_website from '../images/personal_website.png';
 import days_since from '../images/days_since.png';
 import visual_explorer from '../images/visual_explorer.png';
+import watchface from '../images/watchface.png';
 
 export interface Project {
     id: number;
@@ -32,18 +33,59 @@ export const Projects: ReadonlyArray<Project> = [
         title: 'Visual Explorer',
         screenshot: visual_explorer,
         owner: 'Work',
-        date: '2024',
+        date: '2021 - 2024',
         link: 'https://mode.com',
-        description: 'Worked with a team creating a new visualization tool based on the Grammar of Graphics',
+        description: `I was brought into Mode to help complete the new visualization builder ` + 
+        `tool called Visual Explorer. This marked a transition for Mode from ` + 
+        `being chart-type centric to a more flexible, Grammar-of-Graphics ` + 
+        `designer tool. We worked across two internal development teams plus a ` + 
+        `remote external company in India to deliver the first release.<br><br> ` + 
+        `With my background in business intelligence and data visualization, my primary ` + 
+        `focus was on configuring the underlying visualization library, driving ` + 
+        `API requirements to the external team for the rendering library, and ` + 
+        `setting overall visualization direction.<br><br>` + 
+        `Over time as resources and priorities have shifted, I've taken on more ` + 
+        `of a traditional front-end developer role, though still exclusively ` + 
+        `related to data visualization. I generally lead small teams in ` + 
+        `developing new features, provide insight into new feature planning, ` + 
+        `and review architecture across multiple teams.` 
+        ,
     },
     {
         id: 2,
         title: 'Shared Axis',
-        screenshot: personal_website,
+        screenshot: visual_explorer,
+        owner: 'Work',
+        date: '2023',
+        link: 'https://mode.com',
+        description: 'Allows users to compose visualizations on the same axis scale',
+    },
+    {
+        id: 4,
+        title: 'Color Enhancements',
+        screenshot: visual_explorer,
         owner: 'Work',
         date: '2024',
         link: 'https://mode.com',
-        description: 'Allows users to compose visualizations on the same axis scale',
+        description: 'Lead a small team of 3 developers to completely revamp how colors are configured',
+    },
+    {
+        id: 5,
+        title: 'Garmin WatchFace',
+        screenshot: watchface,
+        owner: 'Personal',
+        date: '2024',
+        link: 'https://github.com/paulvezzetti/Circles/',
+        description: 'Fun project to create my own watch face for my new watch',
+    },
+    {
+        id: 6,
+        title: 'Drill Anywhere',
+        screenshot: visual_explorer,
+        owner: 'Work',
+        date: '2023',
+        link: 'https://mode.com',
+        description: 'Hack Day project which won Hacker`s Choice Award',
     },
     {
         id: 3,
@@ -54,31 +96,4 @@ export const Projects: ReadonlyArray<Project> = [
         link: 'https://github.com/paulvezzetti',
         description: 'Built a mobile app for Android and IOS for personal use',
     },
-    {
-        id: 4,
-        title: 'Color Enhancements',
-        screenshot: personal_website,
-        owner: 'Work',
-        date: '2024',
-        link: 'https://mode.com',
-        description: 'Lead a small team of 3 developers to completely revamp how colors are configured',
-    },
-    {
-        id: 5,
-        title: 'Garmin WatchFace',
-        screenshot: days_since,
-        owner: 'Personal',
-        date: '2024',
-        link: 'https://github.com/paulvezzetti',
-        description: 'Fun project to create my own watch face for my new watch',
-    },
-    {
-        id: 6,
-        title: 'Drill Anywhere',
-        screenshot: personal_website,
-        owner: 'Work',
-        date: '2024',
-        link: 'https://mode.com',
-        description: 'Hack Day project which won Hacker`s Choice Award',
-    }
 ];

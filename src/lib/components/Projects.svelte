@@ -30,12 +30,13 @@
 		<div class="project-details">
 			<img src={selectedProject?.screenshot} alt="screenshot" class="screenshot" />
 			<div class="project-description">
-				<a
-					href={selectedProject?.link}
-					on:mouseenter={() => (linkSrc = link_hover)}
-					on:mouseleave={() => (linkSrc = link)}
-					><img src={linkSrc} alt="link" class="link-icon" /></a
-				>
+					<p><span>{selectedProject?.owner}</span> : {selectedProject?.date}
+					<a
+						href={selectedProject?.link}
+						on:mouseenter={() => (linkSrc = link_hover)}
+						on:mouseleave={() => (linkSrc = link)}
+						><img src={linkSrc} alt="link" class="link-icon" /></a
+					></p>
 				<p>{@html selectedProject?.description}</p>
 			</div>
 		</div>
@@ -85,7 +86,7 @@
 	}
 
 	.project-button:hover {
-		border-bottom: 1px solid #999999;
+		border-bottom: 1px solid #6d6d6d;
 	}
 
 	.project-button:active {
@@ -95,6 +96,7 @@
 	.project-button.selected {
 		color: #cfcfcf;
 		font-weight: 600;
+		border-bottom: 1px solid #999999;
 	}
 
 	.project-details {

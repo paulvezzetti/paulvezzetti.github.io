@@ -6,7 +6,6 @@
 	let carousel: HTMLElement;
 	let scrollRightButton: HTMLElement;
 	let scrollLeftButton: HTMLElement;
-	let scrollIndex = 0;
 
 	let childStarts: Array<number> = [];
 	let childWidths: Array<number> = [];
