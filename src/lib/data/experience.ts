@@ -1,10 +1,13 @@
-import mode from '../images/mode.png';
-import jmp from '../images/jmp.png';
-import sas from '../images/sas.png';
+import mode_ts from '../images/mode_ts.png';
+import jmp_wide from '../images/jmp_wide.png';
+import sas_wide from '../images/sas-wide.png';
+import ibm from '../images/ibm.png';
 
 export interface Experience {
+	id: number;
 	title: string;
 	company: string;
+	company_full: string;
 	dates: string;
 	logo: any;
 	bullets: string[];
@@ -12,10 +15,12 @@ export interface Experience {
 
 export const Experiences: Array<Experience> = [
 	{
+		id: 0,
 		title: 'Senior Visualization Systems Engineer',
 		company: 'Mode Analytics',
-		dates: 'May 2021 - Present',
-		logo: mode,
+		company_full: 'Mode Analytics/ThoughtSpot',
+		dates: 'MAY 2021 - PRESENT',
+		logo: mode_ts,
 		bullets: [
 			'Visualization expert driving expansion of Visual Explorer graphics tool. Continually improving the Grammar-of-Graphics capabilities to provide flexible, powerful charting.',
 			'Technical team lead directing small engineering teams. Worked with Product and Design on feature requirements, feasibility and technical direction. Performed story and task breakdown into small units with clear objectives. Mentored team members through pairing and code review to ensure code standards and quality.',
@@ -26,10 +31,12 @@ export const Experiences: Array<Experience> = [
 		]
 	},
 	{
+		id: 1,
 		title: 'Principle Software Engineer',
 		company: 'JMP',
-		dates: '2018 - May 2021',
-		logo: jmp,
+		company_full: 'JMP',
+		dates: '2018 - MAY 2021',
+		logo: jmp_wide,
 		bullets: [
 			'Provided new features for graphical data exploration in desktop statistical software application using C++.',
 			'Rewrote Area Chart to combine code and features with Line Chart.',
@@ -41,10 +48,12 @@ export const Experiences: Array<Experience> = [
 		]
 	},
 	{
+		id: 2,
 		title: 'Principle Software Engineer',
 		company: 'SAS Institute',
+		company_full: 'SAS Institute',
 		dates: '2006 - 2018',
-		logo: sas,
+		logo: sas_wide,
 		bullets: [
 			'Developed core data visualization components in portable C++ framework for consumption by SAS applications in HTML/Wasm, iOS, Android and Windows platforms.',
 			'Implemented component rendering using Canvas, OpenGL, SVG and PDF. Led effort to redesign component lifecycle.',
@@ -55,13 +64,15 @@ export const Experiences: Array<Experience> = [
 			'Ported Flex client code to Java backend code for migrating saved exploration content. Integrated two separate Flex products into a single offering.'
 		]
 	},
-    {
+	{
+		id: 3,
 		title: 'Senior Development Engineer',
 		company: 'IBM',
+		company_full: 'IBM',
 		dates: '1997 - 2006',
-		logo: sas,
+		logo: ibm,
 		bullets: [
-            'Developed, tested and provided customer support for system management software from Tivoli and IBM Server group.'
+			'Developed, tested and provided customer support for system management software from Tivoli and IBM Server group.'
 		]
 	}
 ];

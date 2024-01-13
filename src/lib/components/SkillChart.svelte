@@ -3,15 +3,18 @@
 	import { onMount } from 'svelte';
 
 	const skills: Array<{ skill: String; level: Number }> = [
-		{ skill: 'Angular', level: 4 },
-		{ skill: 'Typescript', level: 4 },
-		{ skill: 'JavaScript', level: 4 },
-		{ skill: 'HTML/CSS', level: 4 },
-		{ skill: 'C/C++', level: 3 },
-		{ skill: 'HTML/CSS', level: 4 },
-		{ skill: 'GIT', level: 4 },
-		{ skill: 'Svelte', level: 1 },
-		{ skill: 'D3', level: 1 }
+		{ skill: 'Data Visualizations', level: 3.75 },
+		{ skill: 'Angular/AngularJS', level: 3.5 },
+		{ skill: 'Typescript', level: 3.9 },
+		{ skill: 'JavaScript', level: 3.7 },
+		{ skill: 'HTML/CSS', level: 3.8 },
+		{ skill: 'Agile/Jira', level: 3.5},
+		{ skill: 'Written/Verbal communication', level: 3.4},
+		{ skill: 'C/C++', level: 3.5 },
+		{ skill: 'GIT', level: 3.2 },
+		{ skill: 'Java', level: 2.1 },
+		{ skill: 'Svelte', level: 1.1 },
+		{ skill: 'D3', level: 0.9 }
 	];
 
 	export let inputWidth = 0;
@@ -22,7 +25,7 @@
 	const marginBottom = 30;
 	const marginLeft = 10;
 
-	const tickLabels = ['None', 'Aware of', 'Beginner', 'Advanced', 'Expert'];
+	const tickLabels = ['', 'Basics', 'Beginner', 'Advanced', 'Expert'];
 	const gradColors = ['#3671BE', '#2B64B5', '#1F57AC', '#1449A2', '#083C99'];
 
 	let vis;
@@ -57,29 +60,38 @@
 			.attr('transform', `translate(${[marginLeft, marginTop]})`);
 
 		// Generate gradients
-		gradColors
-			.forEach((color, index) => {
-				var grad = svg
-					.append('defs')
-					.append('linearGradient')
-					.attr('id', `grad${index}`)
-					.attr('x1', '0%')
-					.attr('x2', '100%')
-					.attr('y1', '0%')
-					.attr('y2', '0%');
+		gradColors.forEach((color, index) => {
+			var grad = svg
+				.append('defs')
+				.append('linearGradient')
+				.attr('id', `grad${index}`)
+				.attr('x1', '0%')
+				.attr('x2', '100%')
+				.attr('y1', '0%')
+				.attr('y2', '0%');
 
-				grad
-					.selectAll('stop')
-					.data([gradColors[0], color])
-					.enter()
-					.append('stop')
-					.style('stop-color', function (d) {
-						return d;
-					})
-					.attr('offset', function (d, i) {
-						return 100 * i + '%';
-					});
-			});
+			grad
+				.selectAll('stop')
+				.data([gradColors[0], color])
+				.enter()
+				.append('stop')
+				.style('stop-color', function (d) {
+					return d;
+				})
+				.attr('offset', function (d, i) {
+					return 100 * i + '%';
+				});
+		});
+
+		svg
+			.append('g')
+			.attr('transform', `translate(0,${inputHeight - marginBottom - 8})`)
+			.attr('color', '#333333')
+			.call(
+				d3.axisBottom(x).ticks(5).tickSize(-inputHeight)
+				.tickFormat((d, i) => '')
+			)
+			.call((g) => g.select('.domain').remove());
 
 		// Create the bars
 		svg
@@ -93,7 +105,7 @@
 			.attr('y', (d) => y(d.skill))
 			.attr('width', (d) => x(d.level) - x(0))
 			.attr('height', y.bandwidth())
-			.style('fill',(d) => `url(#grad${d.level})`);
+			.style('fill', (d) => `url(#grad${Math.round(d.level)})`);
 
 		// Append a label for each skill.
 		svg
@@ -114,12 +126,12 @@
 			.append('g')
 			.attr('transform', `translate(0,${inputHeight - marginBottom})`)
 			.attr('color', '#d3d3d3')
-            .style('font-size', 'large')
+			.style('font-size', 'large')
 			.call(
 				d3
 					.axisBottom(x)
 					.ticks(5)
-                    
+					.tickSize(0)
 					.tickFormat((d, i) => tickLabels[d])
 			)
 			.call((g) => g.select('.domain').remove());

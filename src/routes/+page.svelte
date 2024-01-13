@@ -88,7 +88,7 @@
 	.main-scroller {
 		position: absolute;
 		top: 50%;
-		right: 6px;
+		right: 18px;
 		transform: translateY(-50%);
 	}
 </style>

@@ -47,6 +47,7 @@
 	}
 
 	.selected {
-		background-color: rebeccapurple;
+		background-color: #4872be;
+		border: 3px double #c7c7c7;
 	}
 </style>

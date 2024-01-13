@@ -22,6 +22,7 @@
 		<div class="project-list">
 			{#each Projects as project (project.id)}
 				<button
+					title={project.title}
 					class="project-button {project.id === selectedProject?.id ? 'selected' : ''}"
 					on:click={() => onProjectSelect(project.id)}>{project.title}</button
 				>
@@ -29,15 +30,19 @@
 		</div>
 		<div class="project-details">
 			<img src={selectedProject?.screenshot} alt="screenshot" class="screenshot" />
-			<div class="project-description">
-					<p><span>{selectedProject?.owner}</span> : {selectedProject?.date}
+			<div class="project-content">
+				<p>
+					<span class="project-type">Project Type:</span>
+					<span>{selectedProject?.owner}</span>
 					<a
 						href={selectedProject?.link}
 						on:mouseenter={() => (linkSrc = link_hover)}
 						on:mouseleave={() => (linkSrc = link)}
 						><img src={linkSrc} alt="link" class="link-icon" /></a
-					></p>
-				<p>{@html selectedProject?.description}</p>
+					>
+				</p>
+				<p class="project-date">{selectedProject?.date}</p>
+				<p class="project-description">{@html selectedProject?.description}</p>
 			</div>
 		</div>
 	</div>
@@ -99,12 +104,41 @@
 		border-bottom: 1px solid #999999;
 	}
 
+	.project-button::after {
+		height: 1px;
+		display: block;
+		content: attr(title);
+		font-weight: 600;
+		color: transparent;
+		overflow: hidden;
+		visibility: hidden;
+	}
+
+	.project-type {
+		font-family: 'Inter';
+	}
+
+	.project-date {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: min(2vmin, 14px);
+		padding-top: 0.5vh;
+	}
+
+	.project-content {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.project-details {
 		display: flex;
 		flex-direction: row;
 		column-gap: 3vw;
 		padding: 0.5vw 5vw;
 		color: #333333;
+	}
+
+	.project-description {
+		padding-top: 2vh;
 	}
 
 	.screenshot {
