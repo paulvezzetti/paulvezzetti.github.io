@@ -1,7 +1,9 @@
 import personal_website from '../images/personal_website.png';
+import color_settings from '../images/color_settings.png';
 import days_since from '../images/days_since.png';
 import visual_explorer from '../images/visual_explorer.png';
 import watchface from '../images/watchface.png';
+import shared_axis from '../images/shared_axis.png';
 
 export interface Project {
 	id: number;
@@ -41,10 +43,10 @@ export const Projects: ReadonlyArray<Project> = [
 		screenshot: visual_explorer,
 		owner: 'Work',
 		date: '2021 - 2024',
-		link: 'https://mode.com',
+		link: 'https://mode.com/visual-explorer',
 		description:
-			`I was brought into Mode to help complete the new visualization builder ` +
-			`tool called Visual Explorer. This marked a transition for Mode from ` +
+			`I was hired at <span style="font-family:'Inter'">Mode</span> to help complete the new visualization builder ` +
+			`tool called <span style="font-family:'Inter'">Visual Explorer</span>. This marked a transition for <span style="font-family:'Inter'">Mode</span> from ` +
 			`being chart-type centric to a more flexible, Grammar-of-Graphics ` +
 			`designer tool. We worked across two internal development teams plus a ` +
 			`remote external company in India to deliver the first release.<br><br> ` +
@@ -61,20 +63,35 @@ export const Projects: ReadonlyArray<Project> = [
 	{
 		id: 2,
 		title: 'Shared Axis',
-		screenshot: visual_explorer,
+		screenshot: shared_axis,
 		owner: 'Work',
 		date: '2023',
-		link: 'https://mode.com',
-		description: 'Allows users to compose visualizations on the same axis scale'
+		link: 'https://mode.com/help/articles/visual-explorer#shared-axis',
+		description:
+			`This project at <span style="font-family:'Inter'">Mode</span> enabled an entirely new class of ` +
+			`visualizations to be created using the <span style="font-family:'Inter'">Visual Explorer</span> tool. ` +
+			`It allows multiple visualization layers to be stacked on top of one another using the same cartesian axes. ` +
+			`This enabled building complex visualizations using basic building blocks. For example, a bullet chart could be ` +
+			`created by stacking multiple bar and shape layers representing the measure, range and target values.`
 	},
 	{
 		id: 4,
 		title: 'Color Enhancements',
-		screenshot: visual_explorer,
+		screenshot: color_settings,
 		owner: 'Work',
-		date: '2024',
-		link: 'https://mode.com',
-		description: 'Lead a small team of 3 developers to completely revamp how colors are configured'
+		date: '2023 - 2024',
+		link: 'https://mode.com/blog/enhanced-charts-color-optimization',
+		description:
+			`This was a major overhaul of color assignment in <span style="font-family:'Inter'">Visual Explorer</span>. ` +
+			`I worked with Product and Design on defining requirements, UX interactions and planning and then lead a team of 2 other developers ` +
+			`to completely revamp the color capabilities of the product.<br><br>` +
+			`We added new features such as: <br>` +
+			`<ul>` +
+			`<li>A custom HSV color picker</li>` +
+			`<li>Two and three color gradients</li>` +
+			`<li>Gradient range customization</li>` +
+			`<li>Stepped gradients</li>` +
+			`<ul>`
 	},
 	{
 		id: 5,
@@ -83,16 +100,29 @@ export const Projects: ReadonlyArray<Project> = [
 		owner: 'Personal',
 		date: '2024',
 		link: 'https://github.com/paulvezzetti/Circles/',
-		description: 'Fun project to create my own watch face for my new watch'
+		description:
+			`I'm an avid runner and recently upgraded my <span style="font-family:'Inter'">Garmin</span> watch to a new model. ` +
+			`The new model has an improved screen which much higher resolution and functionality. ` +
+			`After trying out some of the available watch faces, I decided to try writing my own. ` +
+			`The SDK and language are not the best and the project didn't give me any relevant skills, but it was a fun experiment anyway.`
 	},
 	{
 		id: 6,
 		title: 'Drill Anywhere',
 		screenshot: visual_explorer,
 		owner: 'Work',
-		date: '2023',
-		link: 'https://mode.com',
-		description: 'Hack Day project which won Hacker`s Choice Award'
+		date: '2022 - 2023',
+		link: 'https://updates.mode.com/more-explorable-reports-with-drill-anywhere-269598',
+		description:
+			`After just a few months at <span style="font-family:'Inter'">Mode</span>, I experiences my first Hack Day. ` +
+			`This was always a big event for the company with a wide variety of projects. I developed a <span style="font-family:'Inter'">'Drill Anywhere'</span> ` +
+			`feature as an enhancement to our <span style="font-style: italic">soon-to-be-released</span> <span style="font-family:'Inter'">Visual Explorer</span>.<br><br>` +
+			`This feature allowed the user to explore the underlying data behind any data element in the visualization. It was a big success and ` + 
+            `won the coveted Hacker's Choice Award which is voted on by everyone at <span style="font-family:'Inter'">Mode</span>.<br><br>` +
+            `Eventually, this feature was prioritized and added to the product as a standard feature. ` +
+            `I had other Hack Day projects added as features such as <a href="https://updates.mode.com/label-controls-in-visual-explorer-255940" target="_blank">Text Settings</a> ` + 
+            `and <a href="https://updates.mode.com/greater-control-and-customization-of-visualizations-with-mark-settings-272720" target="_blank">Mark Settings</a>.<br><br>` +
+            `My success at Hack Day plus my input on other visualization features earned me the Innovator Award at ThoughtSpot.`
 	},
 	{
 		id: 3,

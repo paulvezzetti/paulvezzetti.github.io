@@ -32,10 +32,12 @@
 			<img src={selectedProject?.screenshot} alt="screenshot" class="screenshot" />
 			<div class="project-content">
 				<p>
-					<span class="project-type">Project Type:</span>
+					<span class="project-type">Project Type ·</span>
 					<span>{selectedProject?.owner}</span>
+					<span class="project-type">·</span>
 					<a
 						href={selectedProject?.link}
+						target="_blank"
 						on:mouseenter={() => (linkSrc = link_hover)}
 						on:mouseleave={() => (linkSrc = link)}
 						><img src={linkSrc} alt="link" class="link-icon" /></a
@@ -139,6 +141,10 @@
 
 	.project-description {
 		padding-top: 2vh;
+	}
+
+	.project-description > a:link {
+		color: red;
 	}
 
 	.screenshot {

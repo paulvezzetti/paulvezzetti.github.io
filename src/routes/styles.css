@@ -47,3 +47,11 @@ ul {
 li {
 	margin: 0.5em;
 }
+
+a:link {
+	color: yellow;
+}
+
+a:visited {
+	color: yellow;
+}
