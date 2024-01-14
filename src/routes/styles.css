@@ -49,9 +49,17 @@ li {
 }
 
 a:link {
-	color: yellow;
+	color: #75a6ff;
 }
 
 a:visited {
-	color: yellow;
+	color: #75a6ff;
+}
+
+a:active {
+	color: #a1c2ff;
+}
+
+a:hover {
+	color: #94baff;
 }
